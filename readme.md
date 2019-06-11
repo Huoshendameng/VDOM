@@ -57,7 +57,7 @@ class Element {
             return child
         })
     }
-    
+
 }
 ```
 再来我们定义他的render方法。  
@@ -87,8 +87,10 @@ class Element(){
             }
             ele.appendChild(childELement)
         })
+        
         return ele
-}}
+    }
+}
 ```  
 通过定义以上的类，我们的虚拟DOM渲染功能就做完了。可以运行试一下。  
 
