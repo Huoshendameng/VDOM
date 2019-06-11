@@ -57,6 +57,7 @@ class Element {
             return child
         })
     }
+    
 }
 ```
 再来我们定义他的render方法。  
