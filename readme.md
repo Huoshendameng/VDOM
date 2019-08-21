@@ -4,20 +4,20 @@
 给定一个树形结构的JSON，实现VDOM
 ```
 let NodeData = {
-            tagName: 'ul',
-            props: {'class':'list'},
-            children: []
-        }
+    tagName: 'ul',
+    props: {'class':'list'},
+    children: []
+}
 
 for (let i =0; i< 5; i++) {
     NodeData.children.push({
-            tagName: 'li',
-            props: {'class':'item'},
-            children: [`I am node${i}`,{
-                tagName: 'p',
-                props: {'class':'child'},
-                children: ['I am child']
-            }]
+        tagName: 'li',
+        props: {'class':'item'},
+        children: [`I am node${i}`,{
+            tagName: 'p',
+            props: {'class':'child'},
+            children: ['I am child']
+        }]
     })
 }
 ```  
