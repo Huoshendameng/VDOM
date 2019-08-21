@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.list{
+    width: 30%;
+    margin:  5% auto;
+    border-top: 1px solid #e2e2e2;
+}
+.list li{
+    list-style: none;
+    display: block;
+    padding: 20px;
+    border: 1px solid #e2e2e2;
+    border-top: 0;
+}
+.list .item .child{
+    margin-top: 10px;
+    color: #2e5aff;
+}

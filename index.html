@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Virtual Dom Render</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <script src="./Element.js"></script>
+    <script>
+        let NodeData = {
+            tagName: 'ul',
+            props: {'class':'list'},
+            children: []
+        }
+
+        for (let i =0; i< 5; i++) {
+            NodeData.children.push({
+                    tagName: 'li',
+                    props: {'class':'item'},
+                    children: [`I am node${i}`,{
+                        tagName: 'p',
+                        props: {'class':'child'},
+                        children: ['I am child']
+                    }]
+            })
+        }
+
+        let VirtualElement = new Element(NodeData)
+        document.body.appendChild(VirtualElement.render())
+    </script>
+</body>
+</html>

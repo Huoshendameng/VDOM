@@ -3,21 +3,23 @@
 ### 题目：
 给定一个树形结构的JSON，实现VDOM
 ```
-let demoNode = {
-    tagName: 'ul',
-    props: {'class':'list'},
-    children: [
-        {
+let NodeData = {
+            tagName: 'ul',
+            props: {'class':'list'},
+            children: []
+        }
+
+for (let i =0; i< 5; i++) {
+    NodeData.children.push({
             tagName: 'li',
             props: {'class':'item'},
-            children: ['Three Kindom']
-        },
-        {
-            tagName: 'li',
-            props: {'class':'item'},
-            children: ['START GAME']
-        }    
-]}
+            children: [`I am node${i}`,{
+                tagName: 'p',
+                props: {'class':'child'},
+                children: ['I am child']
+            }]
+    })
+}
 ```  
 ### 思路：    
 
@@ -49,9 +51,8 @@ class Element {
         this.tagName = props.tagName || ''
         this.props = props.props || {}
         this.children = props.children || []
-        let _child = []
-        this.children = this.children.map((child) => {
-            if(typeof child == "object" ){
+        this.children = this.children.map(child => {
+            if(typeof child === "object" ){
                 child = new Element(child)
             }
             return child
@@ -78,7 +79,7 @@ class Element(){
         for (let propsName in this.props){            
             ele.setAttribute(propsName, this.props[propsName])        
         }        
-        this.children.forEach(function(item ,index){            
+        this.children.forEach(item => {            
             let childELement = null 
             if( item instanceof Element){
                 childELement = item.render()
@@ -95,7 +96,7 @@ class Element(){
 通过定义以上的类，我们的虚拟DOM渲染功能就做完了。可以运行试一下。  
 
 ```
-let demoElement = new Element(demoNode)；
+let VirtualElement = new Element(NodeData)；
 
-document.body.appendChild(demoElement.render())；
+document.body.appendChild(VirtualElement.render())；
 ```
